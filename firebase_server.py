@@ -14,7 +14,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Initialize Firebase Admin SDK
-cred = credentials.Certificate(r'C:\Users\Naindeep\Desktop\SDG\NASA-SPACE-APPS-SDG-IN_CLASSROOMS\creds\sdg-nasa-firebase-adminsdk-67pxz-cd966ca1fa.json')  # Update this path
+cred = credentials.Certificate(r'NASA-SPACE-APPS-SDG-IN_CLASSROOMS\creds\sdg-nasa-firebase-adminsdk-67pxz-cd966ca1fa.json')  # Update this path
 firebase_admin.initialize_app(cred)
 
 # Initialize Firestore

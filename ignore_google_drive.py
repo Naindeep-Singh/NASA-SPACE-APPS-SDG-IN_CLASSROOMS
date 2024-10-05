@@ -11,7 +11,7 @@ TEMP_FOLDER = '/tmp'
 if not os.path.exists(TEMP_FOLDER):
     os.makedirs(TEMP_FOLDER)
 # Load Google Drive credentials
-SERVICE_ACCOUNT_FILE = r'C:\Users\Naindeep\Desktop\SDG\NASA-SPACE-APPS-SDG-IN_CLASSROOMS\creds\gen-lang-client-0262431813-1fc8ab775e99.json'
+SERVICE_ACCOUNT_FILE = r'NASA-SPACE-APPS-SDG-IN_CLASSROOMS\creds\sdg-nasa-firebase-adminsdk-67pxz-cd966ca1fa.json'
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 
 creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
