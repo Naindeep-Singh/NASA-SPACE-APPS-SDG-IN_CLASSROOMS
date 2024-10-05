@@ -20,3 +20,9 @@ openai
 python-docx 
 PyPDF2 
 chardet
+Flask==2.3.3
+google-api-python-client==2.93.0
+google-auth==2.22.0
+google-auth-oauthlib==1.0.0
+Werkzeug==2.3.7
+firebase-admin==6.1.0
