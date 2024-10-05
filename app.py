@@ -38,9 +38,23 @@ def input_pdf_setup(uploaded_file):
     ]
     return pdf_parts
 
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
+
+@app.route('/mentor')
+def mentor():
+    return render_template('mentorlogin.html')
+
+@app.route('/student')
+def student():
+    return render_template('studentlogin.html')
+
+
+@app.route('/pdf-analyze')
+def pdfanalyze():
+    return render_template('pdf-analyze.html')
 
 @app.route('/analyze', methods=['POST'])
 def analyze():

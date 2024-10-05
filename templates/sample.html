@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG.edu</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    header {
+      background-color: #e50914;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: 600;
+    }
+
+    .container-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .content-section {
+      flex: 1;
+      margin: 20px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .content-section:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .scrollable-container {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    iframe:hover {
+      transform: scale(1.02);
+    }
+
+    a {
+      text-decoration: none;
+      color: #e50914;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #005f5f;
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #e50914;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      .container-row {
+        flex-direction: column;
+      }
+      iframe {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SDG.edu</h1>
+    <p>Engaging Youth with the 2030 Sustainable Development Goals</p>
+  </header>
+
+  <div class="container container-row">
+    <!-- Video Section -->
+    <section class="content-section">
+      <h2>Video</h2>
+      <div class="scrollable-container">
+        <iframe src="https://www.youtube.com/embed/0XTBYMfZyrM" title="The Sustainable Development Goals: Changing the World in 17 Steps" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/j2kB6831gVs" title="What are the SDGs?" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/zF361a019zA" title="United Nations: Sustainable Development Goals Explained" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wXASRXbjR08" title="What is Sustainable Development?" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Tu-ijw4dLzo" title="Global Goals: 17 Goals to Transform Our World" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/qfOgdj4Okdw" title="The Role of Education in Achieving SDGs" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="content-section">
+      <h2>News</h2>
+      <div class="scrollable-container">
+        <ul>
+          <li><a href="https://www.un.org/sustainabledevelopment/goal-of-the-month/" target="_blank">UN Goal of the Month</a></li>
+          <li><a href="https://www.devex.com/news/where-do-the-un-sustainable-development-goals-stand-108447" target="_blank">Where Do the UN SDGs Stand?</a></li>
+          <li><a href="https://www.epw.in/engage/article/youth-employment-labour-market-and-sustainable" target="_blank">Youth Employment & Labor Market</a></li>
+          <li><a href="https://pib.gov.in/PressReleasePage.aspx?PRID=2032857" target="_blank">Indian Government's SDG Initiatives</a></li>
+          <li><a href="https://www.un.org/sustainabledevelopment/sdg-moment/" target="_blank">SDG Moment</a></li>
+          <li><a href="https://www.unssc.org/news-and-insights/blog/milestone-year-thai-sdg-micro-primer-empowering-youth-sustainable-action" target="_blank">Empowering Youth for Sustainable Action</a></li>
+          <li><a href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-12-9" target="_blank">Why SDGs Matter: Goal 12</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="content-section">
+      <h2>Events</h2>
+      <div class="scrollable-container">
+        <ul>
+          <li><a href="https://www.eventlink1.com" target="_blank">Event 1</a></li>
+          <li><a href="https://www.eventlink2.com" target="_blank">Event 2</a></li>
+          <li><a href="https://www.eventlink3.com" target="_blank">Event 3</a></li>
+          <li><a href="https://www.eventlink4.com" target="_blank">Event 4</a></li>
+          <li><a href="https://www.eventlink5.com" target="_blank">Event 5</a></li>
+          <li><a href="https://www.eventlink6.com" target="_blank">Event 6</a></li>
+          <li><a href="https://www.eventlink7.com" target="_blank">Event 7</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 SDG.edu. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
