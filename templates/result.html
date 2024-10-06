@@ -1,14 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis Result</title>
-</head>
-<body>
-    <h1>PDF Analysis Result</h1>
-    <p>{{ response }}</p>
+    <title>Venue - SDG Score</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(255, 204, 255, 0.8), rgba(255, 229, 180, 0.8));
+            color: #000;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1585062492620-5938d0e7521e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZsb3dlcnxlbnwwfHx8fDE2MjM4NTU4MjE&ixlib=rb-1.2.1&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
 
-    <a href="{{ url_for('index') }}">Back to Upload</a>
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            width: calc(100% - 240px);
+            /* Full width minus margins (120px left + 120px right) */
+            margin: 0 120px;
+            /* 120px margin from the edges */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+            /* Include padding in width calculation */
+            overflow: hidden;
+            /* Prevent content overflow */
+        }
+
+        .sdg-score {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .score-box {
+            border: 4px solid #ff69b4;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            width: 120px;
+            margin: 0 auto;
+        }
+
+        .score-box p {
+            font-size: 28px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .description {
+            margin-bottom: 20px;
+        }
+
+        .description h3 {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .description p {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .suggestions {
+            margin-top: 20px;
+        }
+
+        .suggestions ul {
+            font-size: 16px;
+            padding-left: 0;
+            /* Remove default padding */
+            list-style-type: none;
+            /* Remove bullet points */
+        }
+
+        .quiz {
+            text-align: center;
+        }
+
+        .quiz button {
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            /* Adjusted padding for better appearance */
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+            /* Added margin for spacing */
+        }
+
+        .quiz button:hover {
+            background-color: #e56738;
+        }
+
+        .gif {
+            max-width: 100%;
+            /* Ensure the GIF does not exceed the container's width */
+            height: auto;
+            /* Maintain aspect ratio */
+            display: block;
+            margin: 20px auto;
+            /* Center the GIF */
+            border-radius: 10px;
+            /* Rounded corners */
+            max-height: 200px;
+            /* Restrict the GIF height to avoid overflow */
+        }
+
+        @media (max-width: 600px) {
+            .score-box p {
+                font-size: 24px;
+                /* Adjust font size for mobile */
+            }
+
+            .description h3 {
+                font-size: 22px;
+                /* Adjust font size for mobile */
+            }
+
+            .description p {
+                font-size: 16px;
+                /* Adjust font size for mobile */
+            }
+
+            .quiz button {
+                padding: 10px 15px;
+                /* Adjust button size for mobile */
+                font-size: 18px;
+                /* Adjust font size for mobile */
+            }
+        }
+
+        /* New Styles for Desktop Screens */
+        @media (min-width: 1024px) {
+            .score-box {
+                width: 200px;
+                /* Adjust score box width for desktop */
+            }
+
+            .score-box p {
+                font-size: 36px;
+                /* Increase font size for score display */
+            }
+
+            .description h3 {
+                font-size: 32px;
+                /* Increase header font size for desktop */
+            }
+
+            .description p {
+                font-size: 20px;
+                /* Increase summary font size for desktop */
+            }
+
+            .quiz button {
+                padding: 14px 25px;
+                /* Increase button size for desktop */
+                font-size: 22px;
+                /* Increase button font size for desktop */
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://media.licdn.com/dms/image/v2/D4E12AQHmh7SW76iRqg/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1657028155650?e=1732752000&v=beta&t=eViLJfZg2-PVIPb6HksZStMBL2Pg_JNXN5VvCUtlJjs"
+            alt="Celebration Image" class="gif">
+        <div class="result-column">
+            <div class="sdg-score">
+                <h2>SDG Score</h2>
+                <div class="score-box">
+                    <p id="sdg-score">0</p> <!-- Placeholder, will be replaced by JS -->
+                </div>
+            </div>
+            <div class="description">
+                <h3>Summary</h3>
+                <p id="summary">Loading...</p> <!-- Placeholder, will be replaced by JS -->
+            </div>
+
+            <div class="suggestions">
+                <h3>Suggestive Improvements</h3>
+                <ul id="suggestions-list">
+                    <!-- Suggestions will be populated here -->
+                </ul>
+            </div>
+
+            <div class="quiz">
+
+                <button onclick="downloadTextFile()">Download Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample JSON response (replace this with actual dynamic data)
+        const jsonResponse = `{
+            "SDG_score": 6,
+            "Guideline_mapping": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            "Summary": "The document effectively focuses on SDG 12, providing a comprehensive overview of responsible consumption and production patterns. It highlights key principles like efficiency, sustainability, equity, and innovation, outlining examples of actions for promoting this goal. However, it lacks a broader perspective on other SDGs and their interconnectedness, which limits the overall impact of the document.",
+            "Suggestive Improvements": [
+                "Expand the scope of analysis to incorporate other SDGs relevant to sustainable consumption and production, such as SDG 3 (Good health and well-being), SDG 7 (Affordable and clean energy), SDG 13 (Climate action), and SDG 15 (Life on land).",
+                "Demonstrate how responsible consumption and production can contribute to achieving other SDGs, showcasing tangible examples and case studies.",
+                "Explore the role of government policies, business practices, and consumer behavior in driving sustainable consumption and production patterns.",
+                "Include data and statistics to quantify the impact of actions aimed at promoting SDG 12.",
+                "Highlight partnerships and collaborations that are driving progress towards SDG 12.",
+                "Develop a call to action, encouraging individuals, organizations, and governments to actively contribute to achieving SDG 12."
+            ]
+        }`;
+
+        // Debugging: Log the JSON response to the console
+        console.log(jsonResponse);
+
+        let data;
+        try {
+            data = JSON.parse(jsonResponse); // Attempt to parse the JSON response
+        } catch (error) {
+            console.error('Error parsing JSON:', error);
+            alert('There was an error processing the data. Please try again.');
+        }
+
+        // Proceed only if the parsing is successful
+        if (data) {
+            // Populate SDG score
+            document.getElementById('sdg-score').textContent = data.SDG_score;
+
+            // Populate Summary
+            document.getElementById('summary').textContent = data.Summary;
+
+            // Populate Suggestions
+            const suggestionsList = document.getElementById('suggestions-list');
+            suggestionsList.innerHTML = ""; // Clear any existing suggestions
+            data['Suggestive Improvements'].forEach(improvement => {
+                const listItem = document.createElement('li');
+                listItem.textContent = improvement;
+                suggestionsList.appendChild(listItem);
+            });
+        }
+
+        function startQuiz() {
+            alert("Quiz will start soon!");
+        }
+
+        function downloadTextFile() {
+            const textContent = `SDG Score: ${data.SDG_score}\nSummary: ${data.Summary}\nSuggestive Improvements:\n- ${data['Suggestive Improvements'].join('\n- ')}`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sdg_score.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
 </body>
+
 </html>

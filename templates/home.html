@@ -128,6 +128,7 @@
   <div class="login-buttons">
     <button class="btn" onclick="redirectToMentorLogin()">Mentor</button>
     <button class="btn" onclick="redirectToStudentLogin()">Student</button>
+    <button class="btn" onclick="redirectToQuiz()">Quiz</button>
   </div>
 
   <div class="container container-row">
@@ -189,6 +190,10 @@
 
     function redirectToStudentLogin() {
       window.location.href = '/student'; // Redirect to student login page
+    }
+
+    function redirectToQuiz() {
+      window.location.href = '/quiz'; // Redirect to student login page
     }
   </script>
 

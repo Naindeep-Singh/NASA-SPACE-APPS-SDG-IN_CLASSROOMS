@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDGs Score Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .card-img-top {
+            max-height: 200px;
+            /* Set a maximum height for images */
+            object-fit: cover;
+            /* Ensure the image covers the area without distortion */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">SDGs Score</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-primary mx-2" onclick="redirectToStudentLogin()">Student Login</button>
+                    <button class="btn btn-secondary mx-2" onclick="redirectToMentorLogin()">Mentor Login</button>
+                    <button class="btn btn-success" onclick="redirectToQuiz()">Quiz</button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://media.licdn.com/dms/image/D4E12AQFXm3u2ZcrSpg/article-cover_image-shrink_720_1280/0/1700056629785?e=2147483647&v=beta&t=Ps2C8khCPRdQV4JdLwHpQAO_1nc4RudHIZY4GggEVV8"
+                    class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://blog.adobe.com/en/publish/2021/09/07/media_110b227a647f25b71e786fbceccd9a38ba8b5e2d5.png?width=750&format=png&optimize=medium"
+                    class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.twinscience.com/wp-content/uploads/2023/01/Untitled-design.png"
+                    class="d-block w-100" alt="Image 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Teaser Section: Articles, Events, and Projects -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Articles Teaser -->
+                <div class="col-md-4">
+                    <h2>Articles</h2>
+                    <div class="card mb-3">
+                        <img src="https://www.younginflux.com/wp-content/uploads/2021/05/book-1822474_1280201_edited.jpg"
+                            class="card-img-top" alt="Article Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Quality Education for All</h5>
+                            <p class="card-text">A short description of Quality Education for All</p>
+                            <a href="ar1.html" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <img src="https://www.younginflux.com/wp-content/uploads/2021/05/waste-sorting-concept.jpg"
+                            class="card-img-top" alt="Article Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Reducing Food Waste is the Need of the Hour</h5>
+                            <p class="card-text">A short description of Reducing Food Waste is the Need of the Hour</p>
+                            <a href="ar2.html" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Teaser -->
+                <div class="col-md-4">
+                    <h2>Events</h2>
+                    <div class="card mb-3">
+                        <img src="https://sdgs.un.org/sites/default/files/2024-05/offical_programme_and_side_events.gif"
+                            class="card-img-top" alt="Event Image">
+                        <div class="card-body">
+                            <h5 class="card-title">9th Multi-stakeholder Forum on Science, Technology and Innovation for
+                                the Sustainable Development Goals</h5>
+                            <p class="card-text">A short description of Event 1...</p>
+                            <a href="ev1.html" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <img src="https://sdgs.un.org/sites/default/files/inline-images/ECOSOC%20Partnership%20Forum%20Consultation%20report%20social%20media.png"
+                            class="card-img-top" alt="Event Image">
+                        <div class="card-body">
+                            <h5 class="card-title">2024 ECOSOC Partnership Forum</h5>
+                            <p class="card-text">A short description of Event 2...</p>
+                            <a href="ev2.html" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Teaser -->
+                <div class="col-md-4">
+                    <h2>Projects</h2>
+                    <div class="card mb-3">
+                        <img src="https://d2ostr1nawkjr.cloudfront.net/app/uploads/2022/11/26040211/7-reasons-why-SDG-educators-OPT.jpg"
+                            class="card-img-top" alt="Project Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 1</h5>
+                            <p class="card-text">Importance of Recycling in Sustainable Development Goals</p>
+                            <a href="pr1.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <img src="https://www.gettingsmart.com/wp-content/uploads/2021/06/f34a9156-9089-41e5-8298-dbcc5cb0295e_YCIS20Experiential20Learning20Week.png"
+                            class="card-img-top" alt="Project Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Think Global, Act Local: How to Embed SDGs in your school</h5>
+                            <p class="card-text">A short description of Project 2...</p>
+                            <a href="pr2.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        <p>&copy; 2024 SDGs Score. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function redirectToMentorLogin() {
+            window.location.href = '/mentor';
+            //flaskj route for mentor login
+        }
+
+        function redirectToStudentLogin() {
+            window.location.href = '/student'; // Redirect to student login page
+        }
+
+        function redirectToQuiz() {
+            window.location.href = '/quiz'; // Redirect to student login page
+        }
+    </script>
+</body>
+
+</html>
