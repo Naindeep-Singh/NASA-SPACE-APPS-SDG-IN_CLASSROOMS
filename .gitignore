@@ -159,3 +159,6 @@ cython_debug/
 #.idea/
 
 static/
+
+creds/
+.env
